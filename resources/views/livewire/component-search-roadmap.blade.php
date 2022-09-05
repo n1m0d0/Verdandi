@@ -49,6 +49,11 @@
                 <div class="flex justify-between items-start p-4 rounded-t  dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                         {{ __('Roadmap') }}: {{ $roadmap->id }}
+                        @if ($roadmap->status == 3)
+                            <span class="text-orange-500">
+                                {{ __('Archive') }}
+                            </span>
+                        @endif
                     </h3>
                     <button wire:click="$set('timeline', false)"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"

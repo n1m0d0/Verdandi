@@ -233,5 +233,9 @@
     "Response  roadmap": "Response  roadmap",
     "created": "created",
     "Sent on": "Sent on",
-    "Delivered on": "Delivered on"
+    "Delivered on": "Delivered on",
+    "Archive it": "Archive it",
+    "Archive the roadmap": "Archive the roadmap",
+    "Once archive, the registration cannot be returned.": "Once archive, the registration cannot be returned.",
+    "Archive": "Archive"
 }

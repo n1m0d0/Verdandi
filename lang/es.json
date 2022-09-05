@@ -233,5 +233,9 @@
     "Response roadmap": "Hoja de ruta de respuesta",
     "created": "creado",
     "Sent on": "Enviado el",
-    "Delivered on": "Entregado el"
+    "Delivered on": "Entregado el",
+    "Archive it": "Archivarlo",
+    "Archive the roadmap": "Archivar la hoja de ruta",
+    "Once archive, the registration cannot be returned.": "Una vez archivado, el registro no puede ser devuelto.",
+    "Archive": "Archivado"
 }

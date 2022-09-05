@@ -30,6 +30,7 @@ class ComponentCorrespondence extends Component
     public $writeModal;
     public $uploadModal;
     public $responseModal;
+    public $archiveModal;
 
     public $sent_by;
     public $sent_to;
@@ -285,6 +286,31 @@ class ComponentCorrespondence extends Component
         toast()
             ->success('Se guardo correctamente')
             ->push();
+    }
+
+    public function modalArchive($id)
+    {
+        $this->road_id = $id;
+        $this->archiveModal = true;
+    }
+
+    public function archive()
+    {
+        $road = Road::find($this->road_id);
+        $road->status = Road::Conclude;
+        $road->save();
+
+        $roadmap = Roadmap::find($road->roadmap_id);
+        $roadmap->status = Roadmap::Conclude;
+        $roadmap->save();
+
+        $this->clear();
+        
+        $this->archiveModal = false;
+
+        toast()
+                ->success('Se guardo correctamente')
+                ->push();
     }
 
     public function clear()

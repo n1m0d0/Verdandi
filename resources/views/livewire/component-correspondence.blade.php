@@ -134,6 +134,8 @@
                                             @if ($action == 'received')
                                                 <a wire:click='modalResponse({{ $road->id }})'
                                                     class="font-medium text-green-600 dark:text-green-500 hover:underline cursor-pointer">{{ __('Answer') }}</a>
+                                                <a wire:click='modalArchive({{ $road->id }})'
+                                                    class="font-medium text-orange-600 dark:text-orange-500 hover:underline cursor-pointer">{{ __('Archive it') }}</a>
                                             @endif
                                             @if ($action == 'pendings')
                                                 <a wire:click='modalSend({{ $road->id }})'
@@ -315,7 +317,8 @@
             <x-jet-danger-button wire:click="$set('uploadModal', false)" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
             </x-jet-danger-button>
-            <x-jet-secondary-button class="ml-2" wire:click='uploadRoad' wire:loading.attr="disabled" wire:target="uploadRoad, file">
+            <x-jet-secondary-button class="ml-2" wire:click='uploadRoad' wire:loading.attr="disabled"
+                wire:target="uploadRoad, file">
                 {{ __('Accept') }}
             </x-jet-secondary-button>
         </x-slot>
@@ -391,6 +394,33 @@
                 {{ __('Cancel') }}
             </x-jet-danger-button>
             <x-jet-secondary-button class="ml-2" wire:click='responseRoad' wire:loading.attr="disabled">
+                {{ __('Accept') }}
+            </x-jet-secondary-button>
+        </x-slot>
+    </x-dialog-modal>
+
+    <x-dialog-modal wire:model="archiveModal">
+        <x-slot name="title">
+            <div class="flex col-span-6 sm:col-span-4 items-center">
+                <x-feathericon-alert-triangle class="h-10 w-10 text-orange-500 mr-2" />
+                {{ __('Archive the roadmap') }}
+            </div>
+        </x-slot>
+
+        <x-slot name="content">
+            <div class="flex col-span-6 sm:col-span-4 items-center gap-2">
+                <x-feathericon-archive class="h-20 w-20 text-orange-500 mr-2" />
+                <p>
+                    {{ __('Once archive, the registration cannot be returned.') }}
+                </p>
+            </div>
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-jet-danger-button wire:click="$set('archiveModal', false)" wire:loading.attr="disabled">
+                {{ __('Cancel') }}
+            </x-jet-danger-button>
+            <x-jet-secondary-button class="ml-2" wire:click='archive' wire:loading.attr="disabled">
                 {{ __('Accept') }}
             </x-jet-secondary-button>
         </x-slot>
